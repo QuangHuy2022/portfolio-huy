@@ -1,5 +1,5 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "../constants";
 import StarField from "./StarField";
 
@@ -114,6 +114,21 @@ const VerticalTimelineElement = ({
 
 
 const ProjectCard = ({ project }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    { title: "Các tính năng chính", data: project.features || [] },
+    { title: "Kỹ năng đạt được", data: project.skills || [] },
+  ];
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
     <VerticalTimelineElement
       contentStyle={{
@@ -150,18 +165,36 @@ const ProjectCard = ({ project }) => {
       }
     >
       <div className="relative">
-        {/* Title */}
-        <motion.h3 
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className='text-white text-[26px] font-bold mb-3 leading-tight
-            hover:text-transparent hover:bg-clip-text 
-            hover:bg-gradient-to-r hover:from-[#CBB6FF] hover:to-[#915EFF]
-            transition-all duration-300 cursor-default'
-        >
-          {project.title}
-        </motion.h3>
+        {/* Title & Link */}
+        <div className="flex justify-between items-start">
+          <motion.h3 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className='text-white text-[26px] font-bold mb-3 leading-tight
+              hover:text-transparent hover:bg-clip-text 
+              hover:bg-gradient-to-r hover:from-[#CBB6FF] hover:to-[#915EFF]
+              transition-all duration-300 cursor-default'
+          >
+            {project.title}
+          </motion.h3>
+          
+          {project.link && (
+            <a 
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-4 py-2 rounded-full bg-gradient-to-r from-[#915EFF] to-[#7c3aed] 
+                shadow-lg shadow-[#915EFF]/20 hover:shadow-[#915EFF]/40 
+                transition-all duration-300 flex items-center gap-2 group/link border border-white/10"
+            >
+              <span className="text-[13px] text-white font-bold whitespace-nowrap">Xem dự án trực tiếp</span>
+              <svg className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          )}
+        </div>
 
         {/* Company */}
         <motion.div 
@@ -176,34 +209,60 @@ const ProjectCard = ({ project }) => {
           </p>
         </motion.div>
 
-        {/* Divider */}
-        <div className="h-[2px] w-full bg-gradient-to-r from-[#915EFF]/60 via-white/20 to-transparent rounded-full mb-6" />
+        {/* Slider Section */}
+        <div className="relative bg-black/30 rounded-2xl p-6 border border-white/5 overflow-hidden">
+          {/* Slider Header */}
+          <div className="flex justify-between items-center mb-6">
+            <button onClick={prevSlide} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+              <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <h4 className="text-[#CBB6FF] font-bold text-[18px] uppercase tracking-wider">
+              {slides[currentSlide].title}
+            </h4>
+            <button onClick={nextSlide} className="p-2 hover:bg-white/10 rounded-full transition-colors">
+              <svg className="w-6 h-6 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
 
-        {/* Points */}
-        <ul className='list-none space-y-4'>
-          {project.points.map((point, index) => (
-            <motion.li
-              key={`project-point-${index}`}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.1 * index }}
-              whileHover={{ x: 4 }}
-              className='flex items-start gap-3 group/item'
-            >
-              <div className="mt-1.5 relative flex-shrink-0">
-                <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#915EFF] to-[#7c3aed]
-                  group-hover/item:scale-150 transition-transform duration-300" />
-                <div className="absolute inset-0 w-2 h-2 rounded-full bg-[#915EFF] 
-                  opacity-0 group-hover/item:opacity-50 blur-sm 
-                  group-hover/item:scale-[3] transition-all duration-300" />
-              </div>
-              <span className='text-white/90 text-[15px] leading-relaxed
-                group-hover/item:text-white transition-colors duration-300'>
-                {point}
-              </span>
-            </motion.li>
-          ))}
-        </ul>
+          {/* Slider Content */}
+          <div className="min-h-[160px]">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+                className="pl-4"
+              >
+                <ul className="list-none space-y-4">
+                  {slides[currentSlide].data.map((item, idx) => (
+                    <li key={idx} className="text-white/80 text-[15px] leading-relaxed flex items-start gap-3">
+                      <span className="text-[#915EFF] mt-1.5 flex-shrink-0 w-1.5 h-1.5 rounded-full bg-[#915EFF]" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Slide Indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {slides.map((_, idx) => (
+              <div
+                key={idx}
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  currentSlide === idx ? "bg-[#915EFF] w-6" : "bg-white/20"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
       </div>
     </VerticalTimelineElement>
   );
@@ -211,7 +270,7 @@ const ProjectCard = ({ project }) => {
 
 const Experience = () => {
   return (
-    <div className="w-full min-h-screen bg-primary py-20 px-6 sm:px-16">
+    <div id="work" className="w-full min-h-screen bg-primary py-20 px-6 sm:px-16">
       {/* Header */}
       <motion.div 
         variants={textVariant()}

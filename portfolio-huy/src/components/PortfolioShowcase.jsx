@@ -349,7 +349,7 @@ const renderContentBlock = (block, index) => {
 };
 
 const PortfolioShowcase = () => {
-  const [activeTab, setActiveTab] = useState("certificates");
+  const [activeTab, setActiveTab] = useState("blog");
   const [openPost, setOpenPost] = useState(null);
   const [error, setError] = useState(null);
 
@@ -383,8 +383,8 @@ const PortfolioShowcase = () => {
   };
 
   const tabs = [
-    { id: "certificates", label: "Certificates", icon: "🎓", gradient: "from-[#915EFF] to-[#7c3aed]" },
     { id: "blog", label: "Blog", icon: "📝", gradient: "from-[#7c3aed] to-[#00BFFF]" },
+    { id: "certificates", label: "Certificates", icon: "🎓", gradient: "from-[#915EFF] to-[#7c3aed]" },
     { id: "tech", label: "Tech Stack", icon: "⚙️", gradient: "from-[#00BFFF] to-[#915EFF]" },
   ];
 

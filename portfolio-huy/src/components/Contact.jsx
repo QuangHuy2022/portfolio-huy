@@ -37,9 +37,9 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         {
           from_name: form.name,
-          to_name: "Trương Tuấn Vũ",
+          to_name: "Nguyen Quang Huy",
           from_email: form.email,
-          to_email: "truongtuanvu2304@gmail.com",
+          to_email: "nguyenhuyvt639@gmail.com",
           message: form.message,
         },
         import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
@@ -204,7 +204,7 @@ const Contact = () => {
     <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
       {/* GitHub */}
       <motion.a
-        href="https://github.com/truongtuanvu2304"
+        href="https://github.com/QuangHuy2022"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, y: 20 }}
@@ -261,7 +261,7 @@ const Contact = () => {
 
       {/* Gmail */}
       <motion.a
-        href="mailto:truongtuanvu2304@gmail.com"
+        href="mailto:nguyenhuyvt639@gmail.com"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -312,7 +312,7 @@ const Contact = () => {
 
       {/* LinkedIn */}
       <motion.a
-        href="https://linkedin.com/in/truongtuanvu2304"
+        href="https://www.linkedin.com/in/huy-quang-6a321339b/"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, y: 20 }}
@@ -365,7 +365,7 @@ const Contact = () => {
 
       {/* Facebook */}
       <motion.a
-        href="https://facebook.com/truongtuanvu2304"
+        href="https://www.facebook.com/john.david.511"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ opacity: 0, y: 20 }}

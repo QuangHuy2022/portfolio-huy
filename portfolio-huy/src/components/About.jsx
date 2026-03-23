@@ -100,10 +100,10 @@ const About = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { icon: "👤", label: "Họ tên", value: "Trương Tuấn Vũ" },
-                  { icon: "🎂", label: "Sinh năm", value: "23-04-2004" },
-                  { icon: "📧", label: "Email", value: "truongtuanvu2304@gmail.com", small: true },
-                  { icon: "📱", label: "SĐT", value: "0395829226" },
+                  { icon: "👤", label: "Họ tên", value: "Nguyễn Quang Huy" },
+                  { icon: "🎂", label: "Sinh năm", value: "05-11-2004" },
+                  { icon: "📧", label: "Email", value: "nguyenhuyvt639@gmail.com", small: true },
+                  { icon: "📱", label: "SĐT", value: "0849500516" },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -134,9 +134,9 @@ const About = () => {
                 >
                   <span className="text-2xl group-hover/item:scale-110 transition-transform duration-300">🎓</span>
                   <div className="flex-1">
-                    <div className="text-[#CBB6FF] text-xs font-semibold mb-1">Đang học tại</div>
+                    <div className="text-[#CBB6FF] text-xs font-semibold mb-1">Đã tốt nghiệp</div>
                     <div className="text-white/90 font-medium text-sm">
-                      Đại học Công nghệ TP.HCM (HUTECH)
+                      Ho Chi Minh City University of Technology
                     </div>
                   </div>
                 </motion.div>
@@ -188,9 +188,10 @@ const About = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
                 { title: "Frontend Development", desc: "React, JavaScript, HTML/CSS", icon: "⚛️", color: "from-blue-500/20" },
-                { title: "Backend Development", desc: "Java, C#, ASP.NET Core", icon: "⚙️", color: "from-green-500/20" },
-                { title: "Database", desc: "MySQL, SQL Server", icon: "🗄️", color: "from-orange-500/20" },
-                { title: "Career Goal", desc: "Full-stack Developer", icon: "🎯", color: "from-purple-500/20" },
+                { title: "Backend Development", desc: "Java, C#, ASP.NET Core, Python, JS, TS", icon: "⚙️", color: "from-green-500/20" },
+                { title: "Database", desc: "Sql(postgresql), NoSQL(mongo, redis)", icon: "🗄️", color: "from-orange-500/20" },
+                { title: "Software Engineering", desc: "OOP, Design Patterns, Git/GitHub, Docker", icon: "🛠️", color: "from-blue-400/20" },
+                { title: "Career Goal", desc: "Backend/AI", icon: "🎯", color: "from-purple-500/20" },
               ].map((skill, idx) => (
                 <motion.div
                   key={idx}
@@ -254,8 +255,8 @@ const About = () => {
           >
             <div className="relative w-full h-full bg-gradient-to-br from-[#915EFF]/20 to-[#00BFFF]/20">
               <img
-                src="/myPhoto.png"
-                alt="Truong Tuan Vu"
+                src="/myPhoto.jpg"
+                alt="Nguyen Quang Huy"
                 className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
               />
               
@@ -324,7 +325,7 @@ const About = () => {
         <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { number: "4+", label: "Năm đại học", icon: "🎓", gradient: "from-blue-500 to-cyan-500", delay: 0.2 },
-            { number: "6+", label: "Dự án học tập & cá nhân", icon: "💻", gradient: "from-purple-500 to-pink-500", delay: 0.3 },
+            { number: "12+", label: "Dự án học tập & cá nhân", icon: "💻", gradient: "from-purple-500 to-pink-500", delay: 0.3 },
             { number: "4+", label: "Dự án nhóm thực hiện", icon: "🚀", gradient: "from-orange-500 to-red-500", delay: 0.4 },
             { number: "100%", label: "Tinh thần học hỏi", icon: "⚡", gradient: "from-green-500 to-emerald-500", delay: 0.5 }
           ].map((stat, index) => (
