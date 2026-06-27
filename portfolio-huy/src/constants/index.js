@@ -61,11 +61,11 @@ const technologies = [
     icon: typescript,
   },
   {
-    name: "Python",
-    icon: javascript, // Placeholder icon as python.svg is missing
+    name: "React JS",
+    icon: reactjs,
   },
   {
-    name: "React JS",
+    name: "Next.js",
     icon: reactjs,
   },
   {
@@ -81,6 +81,10 @@ const technologies = [
     icon: java,
   },
   {
+    name: "Spring Boot",
+    icon: java,
+  },
+  {
     name: "C#",
     icon: csharp,
   },
@@ -93,20 +97,118 @@ const technologies = [
     icon: mongodb,
   },
   {
+    name: "PostgreSQL",
+    icon: javascript,
+  },
+  {
+    name: "Redis",
+    icon: javascript,
+  },
+  {
+    name: "Docker",
+    icon: docker,
+  },
+  {
+    name: "Flutter",
+    icon: javascript,
+  },
+  {
     name: "Three JS",
     icon: threejs,
   },
   {
-    name: "git",
+    name: "Git",
     icon: git,
   },
   {
-    name: "figma",
+    name: "Figma",
     icon: figma,
   },
 ];
 
 const projects = [
+  {
+    title: "AI ThanhCong - AI Education Platform",
+    company_name: "Next.js / React / Node.js (Sao Viet Informatics Center)",
+    icon: reactjs,
+    iconBg: "#383E56",
+    date: "Feb 2026 – Present",
+    points: [],
+    features: [
+      "Developed and maintained a responsive bilingual (VI/EN) website using Next.js, React, and Node.js, delivering AI course pages, student reviews, and blog features.",
+      "Authored and published 70+ SEO-optimized articles on AI tools, automation, and software development, while managing content indexing with Google Search Console.",
+      "Integrated Google Analytics to monitor user behavior, traffic, and engagement, supporting data-driven content and website optimization.",
+      "Optimized metadata, sitemaps, URL structure, and internal navigation following SEO best practices to improve search visibility and content discoverability.",
+      "Maintained production features, updated course content, documented the project architecture, and successfully handed over the website for long-term maintenance."
+    ],
+    skills: [
+      "Full-stack development with Next.js and React",
+      "SEO optimization and content strategy",
+      "Google Analytics and Search Console integration",
+      "Bilingual website development and content management"
+    ],
+  },
+  {
+    title: "HRM System - Enterprise Human Resource Management",
+    company_name: "Java / Angular / PostgreSQL / Docker (FTI Sai Gon)",
+    icon: java,
+    iconBg: "#E6DEDD",
+    date: "Oct 2025 – Jan 2026",
+    points: [],
+    features: [
+      "Built and enhanced responsive web interfaces using Angular and PrimeNG, improving user experience and operational efficiency.",
+      "Implemented real-time communication features, including chat and in-app notifications, using WebSocket, STOMP and SockJS.",
+      "Integrated Firebase Cloud Messaging (FCM) to deliver push notifications to mobile applications, ensuring timely updates for users.",
+      "Leveraged JSON serialization and GZIP compression to consolidate historical records into compressed archive blocks, reducing storage consumption and improving long-term data management performance."
+    ],
+    skills: [
+      "Angular and PrimeNG for enterprise UI development",
+      "Real-time communication with WebSocket, STOMP, SockJS",
+      "Firebase Cloud Messaging integration",
+      "Data optimization with GZIP compression and JSON serialization"
+    ],
+  },
+  {
+    title: "CodeLearn - Interactive Programming Education Platform",
+    company_name: "ASP.NET Core 9 / C# / EF Core / PostgreSQL / Redis",
+    icon: dotnet,
+    iconBg: "#383E56",
+    date: "Jan 2025 – Apr 2025",
+    points: [],
+    features: [
+      "Architected a multi-role ASP.NET Core 9 MVC system (Admin, Teacher, Student, User) with Areas, role-based authorization, and clean separation of concerns.",
+      "Built an in-browser code execution engine supporting 8+ programming languages by integrating native runtimes and Microsoft Roslyn, eliminating reliance on third-party execution services.",
+      "Implemented OAuth 2.0 (Google, GitHub) with ASP.NET Core Identity, custom Security Stamp validation, and sliding session expiration for secure authentication.",
+      "Designed a hierarchical curriculum model and developed teacher management features for courses, classes, coding exams, automated test-case evaluation, and student progress tracking."
+    ],
+    skills: [
+      "ASP.NET Core 9 MVC architecture",
+      "In-browser code execution with Roslyn",
+      "OAuth 2.0 and secure authentication",
+      "Role-based authorization and multi-role systems"
+    ],
+  },
+  {
+    title: "MedBooking - Medical Appointment Booking Platform",
+    company_name: "JavaScript / JWT / WebSocket / PostgreSQL / Flutter",
+    icon: javascript,
+    iconBg: "#E6DEDD",
+    date: "Oct 2024 – Dec 2024",
+    points: [],
+    features: [
+      "Designed and developed RESTful APIs supporting both Web and Mobile clients, ensuring consistent data flow across platforms.",
+      "Implemented JWT-based authentication and authorization, improving system security and enabling scalable user access management.",
+      "Integrated the SePay payment gateway to support secure online transactions, streamlining the appointment booking and confirmation process.",
+      "Utilized WebSocket for real-time appointment synchronization, reducing booking conflicts and preventing double-booking.",
+      "Designed and optimized relational database schemas for doctors, patients, schedules, and appointments, ensuring data consistency and efficient query performance."
+    ],
+    skills: [
+      "RESTful API development",
+      "JWT authentication and authorization",
+      "Payment gateway integration (SePay)",
+      "Real-time data synchronization with WebSocket"
+    ],
+  },
   {
     title: "Online Chess Game",
     company_name: "React 19 + TypeScript + PeerJS",

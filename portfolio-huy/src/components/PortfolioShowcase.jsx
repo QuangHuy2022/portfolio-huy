@@ -17,11 +17,8 @@ const CertificateCard = ({
   date,
   description,
   tags,
-  image,
-  detail_image,
   verification_link,
 }) => {
-  const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -40,168 +37,108 @@ const CertificateCard = ({
   }, []);
 
   return (
-    <>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
-        whileHover={!isMobile ? { y: -8 } : {}}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay: index * 0.1, duration: 0.6, ease: "easeOut" }}
+      whileHover={!isMobile ? { y: -8 } : {}}
+    >
+      <Tilt
+        tiltEnable={!isMobile}
+        tiltMaxAngleX={12}
+        tiltMaxAngleY={12}
+        scale={isMobile ? 1 : 1.03}
+        transitionSpeed={400}
+        className="bg-gradient-to-br from-tertiary via-tertiary to-black-200/50 p-6 rounded-3xl 
+          sm:w-[360px] w-full shadow-xl hover:shadow-2xl hover:shadow-[#915EFF]/40
+          border border-white/5 hover:border-[#915EFF]/40 
+          transition-all duration-500 group overflow-hidden relative"
       >
-        <Tilt
-          tiltEnable={!isMobile}
-          tiltMaxAngleX={12}
-          tiltMaxAngleY={12}
-          scale={isMobile ? 1 : 1.03}
-          transitionSpeed={400}
-          className="bg-gradient-to-br from-tertiary via-tertiary to-black-200/50 p-6 rounded-3xl 
-            sm:w-[360px] w-full shadow-xl hover:shadow-2xl hover:shadow-[#915EFF]/40
-            border border-white/5 hover:border-[#915EFF]/40 
-            transition-all duration-500 group overflow-hidden relative"
-        >
-          {/* Background gradient overlay */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-br from-[#915EFF] via-[#7c3aed] to-[#00BFFF] transition-opacity duration-700" />
-          
-          {/* Shine effect */}
-          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-            <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000" />
-          </div>
-
-          <div className="relative z-10">
-            {/* Image Container */}
-            <div
-              className="relative w-full h-[200px] cursor-pointer rounded-2xl overflow-hidden
-                bg-gradient-to-br from-white/5 to-white/[0.02] p-4 mb-5
-                group-hover:scale-[1.02] transition-transform duration-500"
-              onClick={() => setShowModal(true)}
-            >
-              <img
-                src={image}
-                alt="certificate_image"
-                className="w-full h-full object-contain"
-              />
-
-              {/* Verification Link Button */}
-              <div className="absolute top-3 right-3">
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    window.open(verification_link, "_blank");
-                  }}
-                  className="w-10 h-10 rounded-full bg-gradient-to-r from-[#915EFF] to-[#7c3aed] 
-                    flex justify-center items-center shadow-lg shadow-[#915EFF]/50
-                    hover:scale-110 hover:shadow-xl hover:shadow-[#915EFF]/60 
-                    transition-all duration-300 group/btn"
-                  title="Xác thực chứng chỉ"
-                >
-                  <svg
-                    className="w-5 h-5 text-white group-hover/btn:rotate-12 transition-transform duration-300"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </button>
-              </div>
-
-              {/* View Details Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent 
-                opacity-0 group-hover:opacity-100 transition-opacity duration-500
-                flex items-end justify-center pb-4">
-                <span className="text-white text-sm font-semibold">
-                  Click để xem chi tiết
-                </span>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="space-y-3">
-              <h3 className="text-white font-bold text-[22px] leading-tight 
-                group-hover:text-transparent group-hover:bg-clip-text 
-                group-hover:bg-gradient-to-r group-hover:from-[#CBB6FF] group-hover:to-[#915EFF]
-                transition-all duration-300">
-                {name}
-              </h3>
-              
-              <div className="flex items-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-[#915EFF]" />
-                <p className="text-[#915EFF] text-[15px] font-semibold">
-                  {issuer}
-                </p>
-              </div>
-              
-              <p className="text-secondary/70 text-[13px] font-medium flex items-center gap-2">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                {date}
-              </p>
-
-              {/* Divider */}
-              <div className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-3" />
-              
-              <p className="text-secondary/90 text-[14px] leading-relaxed line-clamp-2">
-                {description}
-              </p>
-            </div>
-
-            {/* Tags */}
-            <div className="mt-4 flex flex-wrap gap-2">
-              {tags.map((tag) => (
-                <span
-                  key={`${name}-${tag.name}`}
-                  className={`px-3 py-1 rounded-lg text-[11px] font-medium ${tag.color}
-                    bg-white/5 border border-white/10 backdrop-blur-sm
-                    hover:border-[#915EFF]/30 transition-colors duration-300`}
-                >
-                  #{tag.name}
-                </span>
-              ))}
-            </div>
-          </div>
-        </Tilt>
-      </motion.div>
-
-      {/* Modal */}
-      {showModal && (
-        <div
-          className="fixed inset-0 bg-black/90 backdrop-blur-md flex justify-center items-center z-[9998] p-4"
-          onClick={() => setShowModal(false)}
-          style={{ zIndex: 9998 }}
-        >
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="relative bg-gradient-to-br from-tertiary to-black-200 p-2 rounded-3xl 
-              shadow-2xl max-w-5xl w-full border border-[#915EFF]/30"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={detail_image || image}
-              alt="certificate_full"
-              className="rounded-2xl max-h-[85vh] w-full object-contain"
-            />
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute -top-4 -right-4 w-12 h-12 rounded-full
-                bg-gradient-to-r from-red-500 to-red-600 
-                text-white font-bold text-2xl
-                hover:scale-110 hover:shadow-xl hover:shadow-red-500/50
-                transition-all duration-300 flex items-center justify-center
-                border-4 border-black-200"
-            >
-              ×
-            </button>
-          </motion.div>
+        {/* Background gradient overlay */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-20 bg-gradient-to-br from-[#915EFF] via-[#7c3aed] to-[#00BFFF] transition-opacity duration-700" />
+        
+        {/* Shine effect */}
+        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
+          <div className="absolute top-0 -left-full h-full w-1/2 bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-12 group-hover:left-full transition-all duration-1000" />
         </div>
-      )}
-    </>
+
+        <div className="relative z-10">
+          {/* Verification Link Button */}
+          <div className="flex justify-end mb-4">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open(verification_link, "_blank");
+              }}
+              className="w-10 h-10 rounded-full bg-gradient-to-r from-[#915EFF] to-[#7c3aed] 
+                flex justify-center items-center shadow-lg shadow-[#915EFF]/50
+                hover:scale-110 hover:shadow-xl hover:shadow-[#915EFF]/60 
+                transition-all duration-300 group/btn"
+              title="Xác thực chứng chỉ"
+            >
+              <svg
+                className="w-5 h-5 text-white group-hover/btn:rotate-12 transition-transform duration-300"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
+              </svg>
+            </button>
+          </div>
+
+          {/* Content */}
+          <div className="space-y-3">
+            <h3 className="text-white font-bold text-[22px] leading-tight 
+              group-hover:text-transparent group-hover:bg-clip-text 
+              group-hover:bg-gradient-to-r group-hover:from-[#CBB6FF] group-hover:to-[#915EFF]
+              transition-all duration-300">
+              {name}
+            </h3>
+            
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rounded-full bg-[#915EFF]" />
+              <p className="text-[#915EFF] text-[15px] font-semibold">
+                {issuer}
+              </p>
+            </div>
+            
+            <p className="text-secondary/70 text-[13px] font-medium flex items-center gap-2">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {date}
+            </p>
+
+            {/* Divider */}
+            <div className="h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent my-3" />
+            
+            <p className="text-secondary/90 text-[14px] leading-relaxed">
+              {description}
+            </p>
+          </div>
+
+          {/* Tags */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            {tags.map((tag) => (
+              <span
+                key={`${name}-${tag.name}`}
+                className={`px-3 py-1 rounded-lg text-[11px] font-medium ${tag.color}
+                  bg-white/5 border border-white/10 backdrop-blur-sm
+                  hover:border-[#915EFF]/30 transition-colors duration-300`}
+              >
+                #{tag.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      </Tilt>
+    </motion.div>
   );
 };
 
@@ -504,7 +441,12 @@ const PortfolioShowcase = () => {
                     <CertificateCard
                       key={`certificate-${certificate?.name || index}-${index}`}
                       index={index}
-                      {...certificate}
+                      name={certificate.name}
+                      issuer={certificate.issuer}
+                      date={certificate.date}
+                      description={certificate.description}
+                      tags={certificate.tags}
+                      verification_link={certificate.verification_link}
                     />
                   );
                 })

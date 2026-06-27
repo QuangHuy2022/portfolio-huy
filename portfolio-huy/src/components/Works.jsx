@@ -15,94 +15,63 @@ const CertificateCard = ({
   date,
   description,
   tags,
-  image,
-  detail_image,
   verification_link,
 }) => {
-  const [showModal, setShowModal] = useState(false);
-
-
   return (
-    <>
-      {/* --- CARD --- */}
-      <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-        <Tilt
-          options={{ max: 45, scale: 1, speed: 450 }}
-          className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full hover:shadow-[0_0_25px_rgba(145,94,255,0.4)] transition-all duration-300"
-        >
-          {/* --- IMAGE --- */}
+    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
+      <Tilt
+        options={{ max: 45, scale: 1, speed: 450 }}
+        className="bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full hover:shadow-[0_0_25px_rgba(145,94,255,0.4)] transition-all duration-300"
+      >
+        {/* --- LINK ICON --- */}
+        <div className="flex justify-end mb-3">
           <div
-            className="relative w-full h-[230px] cursor-pointer"
-            onClick={() => setShowModal(true)}
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(verification_link, "_blank");
+            }}
+            className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition"
           >
-            <img
-              src={image}
-              alt="certificate_image"
-              className="w-full h-full object-contain rounded-2xl bg-white/5 p-4"
-            />
-
-            {/* --- LINK ICON --- */}
-            <div className="absolute inset-0 flex justify-end m-3 card-img_hover">
-              <div
-                onClick={(e) => {
-                  e.stopPropagation();
-                  window.open(verification_link, "_blank");
-                }}
-                className="black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer hover:scale-110 transition"
-              >
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </div>
-            </div>
+            <svg
+              className="w-5 h-5 text-white"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+              />
+            </svg>
           </div>
-
-          {/* --- INFO --- */}
-          <div className="mt-5">
-            <h3 className="text-white font-bold text-[20px] leading-tight">
-              {name}
-            </h3>
-            <p className="mt-1 text-[#915EFF] text-[14px] font-medium">
-              {issuer}
-            </p>
-            <p className="mt-2 text-secondary text-[12px]">{date}</p>
-            <p className="mt-3 text-secondary text-[14px] leading-relaxed">
-              {description}
-            </p>
-          </div>
-
-          {/* --- TAGS --- */}
-          <div className="mt-4 flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <p key={`${name}-${tag.name}`} className={`text-[12px] ${tag.color}`}>
-                #{tag.name}
-              </p>
-            ))}
-          </div>
-        </Tilt>
-      </motion.div>
-
-      {/* --- MODAL HIỂN THỊ ẢNH CHỨNG CHỈ CHI TIẾT --- */}
-      <Modal isOpen={showModal} onClose={() => setShowModal(false)}>
-        <div className="relative">
-          <img
-            src={detail_image || image}
-            alt="certificate_full"
-            className="rounded-xl max-h-[85vh] w-auto mx-auto object-contain"
-          />
         </div>
-      </Modal>
-    </>
+
+        {/* --- INFO --- */}
+        <div>
+          <h3 className="text-white font-bold text-[20px] leading-tight">
+            {name}
+          </h3>
+          <p className="mt-1 text-[#915EFF] text-[14px] font-semibold">
+            {issuer}
+          </p>
+          <p className="mt-2 text-secondary text-[12px]">{date}</p>
+          <p className="mt-3 text-secondary text-[14px] leading-relaxed">
+            {description}
+          </p>
+        </div>
+
+        {/* --- TAGS --- */}
+        <div className="mt-4 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <p key={`${name}-${tag.name}`} className={`text-[12px] ${tag.color}`}>
+              #{tag.name}
+            </p>
+          ))}
+        </div>
+      </Tilt>
+    </motion.div>
   );
 };
 
@@ -126,7 +95,16 @@ const Works = () => {
 
       <div className="mt-20 flex flex-wrap gap-7">
         {certificates.map((certificate, index) => (
-          <CertificateCard key={`certificate-${index}`} index={index} {...certificate} />
+          <CertificateCard 
+            key={`certificate-${index}`} 
+            index={index} 
+            name={certificate.name}
+            issuer={certificate.issuer}
+            date={certificate.date}
+            description={certificate.description}
+            tags={certificate.tags}
+            verification_link={certificate.verification_link}
+          />
         ))}
       </div>
     </>
