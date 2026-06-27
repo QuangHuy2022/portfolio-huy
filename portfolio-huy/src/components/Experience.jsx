@@ -117,8 +117,8 @@ const ProjectCard = ({ project }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    { title: "Các tính năng chính", data: project.features || [] },
-    { title: "Kỹ năng đạt được", data: project.skills || [] },
+    { title: "Key Features", data: project.features || [] },
+    { title: "Skills Gained", data: project.skills || [] },
   ];
 
   const nextSlide = () => {
@@ -188,7 +188,7 @@ const ProjectCard = ({ project }) => {
                 shadow-lg shadow-[#915EFF]/20 hover:shadow-[#915EFF]/40 
                 transition-all duration-300 flex items-center gap-2 group/link border border-white/10"
             >
-              <span className="text-[13px] text-white font-bold whitespace-nowrap">Xem dự án trực tiếp</span>
+              <span className="text-[13px] text-white font-bold whitespace-nowrap">View Live Project</span>
               <svg className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -294,7 +294,7 @@ const Experience = () => {
           >
             <span className="text-3xl">🚀</span>
             <span className="text-[#CBB6FF] font-semibold text-sm uppercase tracking-wider">
-              Các dự án đã thực hiện
+              Projects I've Built
             </span>
           </motion.div>
           
@@ -322,7 +322,7 @@ const Experience = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-6 text-secondary/90 text-[17px] max-w-3xl mx-auto leading-relaxed"
           >
-            Hành trình phát triển qua các dự án thực tế, từ ý tưởng đến triển khai thành công
+Development journey through real-world projects, from idea to successful deployment
           </motion.p>
         </div>
       </motion.div>
@@ -362,10 +362,10 @@ const Experience = () => {
           <div className="relative z-10">
             <h3 className="text-white text-[32px] font-bold mb-4
               bg-gradient-to-r from-white to-[#CBB6FF] bg-clip-text">
-              Có ý tưởng dự án mới?
+              Have a New Project Idea?
             </h3>
             <p className="text-secondary/90 text-[17px] mb-8 leading-relaxed">
-              Hãy cùng nhau biến ý tưởng của bạn thành hiện thực!
+              Let's turn your idea into reality together!
             </p>
             
             <motion.button
@@ -385,7 +385,7 @@ const Experience = () => {
                 shadow-lg shadow-[#915EFF]/50 hover:shadow-xl hover:shadow-[#915EFF]/60
                 transition-all duration-300 inline-flex items-center gap-3 group/btn cursor-pointer"
             >
-              <span>Liên hệ với tôi</span>
+              <span>Contact Me</span>
               <svg className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>

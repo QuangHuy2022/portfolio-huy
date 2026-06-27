@@ -48,7 +48,7 @@ const About = () => {
           >
             <span className="text-3xl">🚀</span>
             <span className="text-[#CBB6FF] font-semibold text-sm uppercase tracking-wider">
-              Hành trình của tôi
+              My Journey
             </span>
           </motion.div>
           
@@ -60,7 +60,7 @@ const About = () => {
               bg-gradient-to-r from-[#915EFF] via-[#7c3aed] to-[#00BFFF] 
               bg-clip-text text-transparent mb-4"
           >
-            Từ ý tưởng đến hiện thực
+From Idea to Reality
           </motion.h2>
           
           <motion.div
@@ -94,16 +94,16 @@ const About = () => {
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-8 bg-gradient-to-b from-[#915EFF] to-[#7c3aed] rounded-full" />
                 <h3 className="text-[#CBB6FF] text-[26px] font-bold">
-                  Thông tin cá nhân
-                </h3>
+              Personal Information
+            </h3>
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {[
-                  { icon: "👤", label: "Họ tên", value: "Nguyễn Quang Huy" },
-                  { icon: "🎂", label: "Sinh năm", value: "05-11-2004" },
+                  { icon: "👤", label: "Full Name", value: "Nguyen Quang Huy" },
+                  { icon: "🎂", label: "Date of Birth", value: "11-05-2004" },
                   { icon: "📧", label: "Email", value: "nguyenhuyvt639@gmail.com", small: true },
-                  { icon: "📱", label: "SĐT", value: "0849500516" },
+                  { icon: "📱", label: "Phone", value: "+84 849500516" },
                 ].map((item, idx) => (
                   <motion.div
                     key={idx}
@@ -134,7 +134,7 @@ const About = () => {
                 >
                   <span className="text-2xl group-hover/item:scale-110 transition-transform duration-300">🎓</span>
                   <div className="flex-1">
-                    <div className="text-[#CBB6FF] text-xs font-semibold mb-1">Đã tốt nghiệp</div>
+                    <div className="text-[#CBB6FF] text-xs font-semibold mb-1">Graduated</div>
                     <div className="text-white/90 font-medium text-sm">
                       Ho Chi Minh City University of Technology
                     </div>
@@ -154,9 +154,9 @@ const About = () => {
                 transition-all duration-300"
             >
               <p className="text-white/95 text-[17px] leading-[32px] font-medium">
-                Với hơn <span className="text-[#915EFF] font-bold text-[19px]">4 năm học tập</span> và nghiên cứu trong lĩnh vực 
-                <span className="text-[#00BFFF] font-bold"> Công nghệ thông tin</span>, tôi đã tích lũy được 
-                kinh nghiệm thực tế trong việc phát triển các dự án từ ý tưởng đến triển khai.
+                With over <span className="text-[#915EFF] font-bold text-[19px]">4 years of studying</span> and researching in
+                <span className="text-[#00BFFF] font-bold"> Information Technology</span>, I've gained practical experience
+                in developing projects from idea to deployment.
               </p>
             </motion.div>
             
@@ -168,10 +168,10 @@ const About = () => {
                 transition-all duration-300"
             >
               <p className="text-white/95 text-[17px] leading-[32px] font-medium">
-                Tôi đặc biệt quan tâm đến việc tạo ra những 
-                <span className="text-[#CBB6FF] font-bold"> giải pháp sáng tạo</span> và 
-                <span className="text-[#CBB6FF] font-bold"> tối ưu hóa trải nghiệm người dùng</span>, 
-                luôn cập nhật và học hỏi những công nghệ mới nhất để mang đến giá trị thực tế.
+                I'm particularly passionate about creating
+                <span className="text-[#CBB6FF] font-bold"> creative solutions</span> and
+                <span className="text-[#CBB6FF] font-bold"> optimizing user experience</span>,
+                always updating and learning the latest technologies to bring real value.
               </p>
             </motion.div>
           </div>
@@ -181,8 +181,8 @@ const About = () => {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-8 bg-gradient-to-b from-[#7c3aed] to-[#00BFFF] rounded-full" />
               <h3 className="text-[#CBB6FF] text-[22px] font-bold">
-                Kỹ năng & Mục tiêu
-              </h3>
+              Skills & Goals
+            </h3>
             </div>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -324,11 +324,11 @@ const About = () => {
         
         <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { number: "4+", label: "Năm đại học", icon: "🎓", gradient: "from-blue-500 to-cyan-500", delay: 0.2 },
-            { number: "12+", label: "Dự án học tập & cá nhân", icon: "💻", gradient: "from-purple-500 to-pink-500", delay: 0.3 },
-            { number: "4+", label: "Dự án nhóm thực hiện", icon: "🚀", gradient: "from-orange-500 to-red-500", delay: 0.4 },
-            { number: "100%", label: "Tinh thần học hỏi", icon: "⚡", gradient: "from-green-500 to-emerald-500", delay: 0.5 }
-          ].map((stat, index) => (
+          { number: "4+", label: "University Years", icon: "🎓", gradient: "from-blue-500 to-cyan-500", delay: 0.2 },
+          { number: "12+", label: "Academic & Personal Projects", icon: "💻", gradient: "from-purple-500 to-pink-500", delay: 0.3 },
+          { number: "4+", label: "Team Projects", icon: "🚀", gradient: "from-orange-500 to-red-500", delay: 0.4 },
+          { number: "100%", label: "Learning Mindset", icon: "⚡", gradient: "from-green-500 to-emerald-500", delay: 0.5 }
+        ].map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}

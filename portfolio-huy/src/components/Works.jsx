@@ -79,7 +79,7 @@ const Works = () => {
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText}`}>Chứng chỉ chuyên nghiệp</p>
+        <p className={`${styles.sectionSubText}`}>Professional Certifications</p>
         <h2 className={`${styles.sectionHeadText}`}>Certifications.</h2>
       </motion.div>
 
@@ -88,8 +88,7 @@ const Works = () => {
           variants={fadeIn("", "", 0.1, 1)}
           className="mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]"
         >
-        Mỗi chứng chỉ là một cột mốc trong hành trình học hỏi 
-        và hoàn thiện kỹ năng của tôi trong lĩnh vực công nghệ thông tin.
+        Each certification is a milestone in my learning journey and skill development in information technology.
         </motion.p>
       </div>
 

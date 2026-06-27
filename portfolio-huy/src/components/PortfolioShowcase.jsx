@@ -74,7 +74,7 @@ const CertificateCard = ({
                 flex justify-center items-center shadow-lg shadow-[#915EFF]/50
                 hover:scale-110 hover:shadow-xl hover:shadow-[#915EFF]/60 
                 transition-all duration-300 group/btn"
-              title="Xác thực chứng chỉ"
+              title="Verify Certificate"
             >
               <svg
                 className="w-5 h-5 text-white group-hover/btn:rotate-12 transition-transform duration-300"
@@ -298,7 +298,7 @@ const PortfolioShowcase = () => {
       setOpenPost(post);
       setError(null);
     } catch (err) {
-      setError(`Lỗi khi mở bài viết: ${err.message}`);
+      setError(`Error opening post: ${err.message}`);
     }
   };
 
@@ -315,7 +315,7 @@ const PortfolioShowcase = () => {
       setError(null);
       setActiveTab(tabId);
     } catch (err) {
-      setError(`Lỗi khi chuyển tab: ${err.message}`);
+      setError(`Error switching tab: ${err.message}`);
     }
   };
 
@@ -342,8 +342,8 @@ const PortfolioShowcase = () => {
           <div className="mt-2 h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#915EFF] to-transparent rounded-full" />
           
           <p className="mt-6 text-secondary/90 text-[17px] sm:text-[18px] max-w-3xl leading-[32px] mx-auto">
-            Khám phá hành trình của tôi thông qua các dự án, chứng chỉ và chuyên môn kỹ thuật. 
-            Mỗi phần thể hiện một cột mốc trong quá trình học tập không ngừng của tôi.
+            Explore my journey through projects, certifications, and technical expertise.
+            Each section represents a milestone in my continuous learning process.
           </p>
         </div>
       </motion.div>
@@ -365,7 +365,7 @@ const PortfolioShowcase = () => {
                   ? `bg-gradient-to-r ${tab.gradient} text-white shadow-2xl shadow-[#915EFF]/50 cursor-default`
                   : "bg-white/5 text-secondary hover:text-white border border-white/10 hover:border-[#915EFF]/50 cursor-pointer"
               }`}
-              title={isActive ? `${tab.label} đang được chọn` : `Chuyển sang ${tab.label}`}
+              title={isActive ? `${tab.label} is currently selected` : `Switch to ${tab.label}`}
             >
               {/* Active state glow */}
               {isActive && (
@@ -407,7 +407,7 @@ const PortfolioShowcase = () => {
           <div className="flex items-start gap-3 text-red-400">
             <span className="text-2xl">⚠️</span>
             <div className="flex-1">
-              <span className="font-bold text-[16px] block mb-1">Lỗi:</span>
+              <span className="font-bold text-[16px] block mb-1">Error:</span>
               <span className="text-sm text-red-300">{error}</span>
             </div>
           </div>
@@ -416,7 +416,7 @@ const PortfolioShowcase = () => {
             className="mt-4 px-5 py-2 bg-red-500/20 hover:bg-red-500/30 text-white text-sm 
               rounded-xl transition-all duration-300 hover:scale-105 font-medium"
           >
-            Đóng thông báo
+            Close notification
           </button>
         </motion.div>
       )}
@@ -453,9 +453,9 @@ const PortfolioShowcase = () => {
               ) : (
                 <div className="text-center py-16 w-full">
                   <div className="text-6xl mb-4">📜</div>
-                  <p className="text-secondary text-lg">Không có chứng chỉ nào.</p>
+                  <p className="text-secondary text-lg">No certificates yet.</p>
                   <p className="text-secondary/70 text-sm mt-2">
-                    {!certificates ? "Data không tồn tại" : `Đã load ${certificates.length || 0} chứng chỉ`}
+                    {!certificates ? "Data doesn't exist" : `Loaded ${certificates.length || 0} certificates`}
                   </p>
                 </div>
               )}
@@ -489,9 +489,9 @@ const PortfolioShowcase = () => {
               ) : (
                 <div className="text-center py-16 w-full">
                   <div className="text-6xl mb-4">📝</div>
-                  <p className="text-secondary text-lg">Không có bài blog nào.</p>
+                  <p className="text-secondary text-lg">No blog posts yet.</p>
                   <p className="text-secondary/70 text-sm mt-2">
-                    {!blogs ? "Data không tồn tại" : `Đã load ${blogs.length || 0} bài blog`}
+                    {!blogs ? "Data doesn't exist" : `Loaded ${blogs.length || 0} blog posts`}
                   </p>
                 </div>
               )}
@@ -583,9 +583,9 @@ const PortfolioShowcase = () => {
               ) : (
                 <div className="text-center py-16 w-full">
                   <div className="text-6xl mb-4">⚙️</div>
-                  <p className="text-secondary text-lg">Không có công nghệ nào.</p>
+                  <p className="text-secondary text-lg">No technologies yet.</p>
                   <p className="text-secondary/70 text-sm mt-2">
-                    {!technologies ? "Data không tồn tại" : `Đã load ${technologies.length || 0} công nghệ`}
+                    {!technologies ? "Data doesn't exist" : `Loaded ${technologies.length || 0} technologies`}
                   </p>
                 </div>
               )}
@@ -647,7 +647,7 @@ const PortfolioShowcase = () => {
                     hover:shadow-lg hover:shadow-[#915EFF]/50 hover:scale-105
                     transition-all duration-300 group'
                 >
-                  <span>Đọc thêm nguồn tham khảo</span>
+                  <span>Read more reference material</span>
                   <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>

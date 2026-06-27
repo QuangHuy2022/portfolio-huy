@@ -47,7 +47,7 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert("Cảm ơn bạn. Tôi sẽ phản hồi sớm nhất có thể.");
+          alert("Thank you! I'll get back to you as soon as possible.");
 
           setForm({
             name: "",
@@ -59,7 +59,7 @@ const Contact = () => {
           setLoading(false);
           console.error(error);
 
-          alert("Rất tiếc, đã xảy ra lỗi. Vui lòng thử lại.");
+          alert("Sorry, something went wrong. Please try again.");
         }
       );
   };
@@ -87,8 +87,8 @@ const Contact = () => {
                 className="inline-block"
               >
                 <span className={`${styles.sectionSubText} text-[#915EFF] font-medium tracking-wider`}>
-                  📬 Kết nối với tôi
-                </span>
+                📬 Connect with Me
+              </span>
               </motion.div>
               
               <motion.h3 
@@ -117,35 +117,35 @@ const Contact = () => {
             className='mt-12 flex flex-col gap-8'
           >
             <label className='flex flex-col'>
-              <span className='text-white font-medium mb-4'>Họ và tên của bạn</span>
+              <span className='text-white font-medium mb-4'>Your Full Name</span>
               <input
                 type='text'
                 name='name'
                 value={form.name}
                 onChange={handleChange}
-                placeholder='Tên của bạn là gì?'
+                placeholder='What is your name?'
                 className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
               />
             </label>
             <label className='flex flex-col'>
-              <span className='text-white font-medium mb-4'>Email của bạn</span>
+              <span className='text-white font-medium mb-4'>Your Email</span>
               <input
                 type='email'
                 name='email'
                 value={form.email}
                 onChange={handleChange}
-                placeholder='Địa chỉ email của bạn là gì?'
+                placeholder='What is your email?'
                 className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
               />
             </label>
             <label className='flex flex-col'>
-              <span className='text-white font-medium mb-4'>Lời nhắn của bạn</span>
+              <span className='text-white font-medium mb-4'>Your Message</span>
               <textarea
                 rows={7}
                 name='message'
                 value={form.message}
                 onChange={handleChange}
-                placeholder='Bạn muốn gửi lời nhắn gì?'
+                placeholder='What would you like to say?'
                 className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
               />
             </label>
@@ -154,7 +154,7 @@ const Contact = () => {
               type='submit'
               className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
             >
-              {loading ? "Đang gửi..." : "Gửi"}
+              {loading ? "Sending..." : "Send"}
             </button>
           </form>
         </motion.div>
@@ -189,14 +189,14 @@ const Contact = () => {
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <h4 className="text-white text-[32px] sm:text-[36px] font-bold mb-3
-          bg-gradient-to-r from-[#915EFF] via-[#7c3aed] to-[#00BFFF] 
-          bg-clip-text text-transparent">
-          Kết nối với tôi
-        </h4>
-        <div className="h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-[#915EFF] to-transparent rounded-full mb-4" />
-        <p className="text-secondary/90 text-[17px] max-w-xl mx-auto">
-          Hãy theo dõi và kết nối với tôi trên các nền tảng mạng xã hội
-        </p>
+                bg-gradient-to-r from-[#915EFF] via-[#7c3aed] to-[#00BFFF] 
+                bg-clip-text text-transparent">
+              Connect with Me
+            </h4>
+            <div className="h-1 w-32 mx-auto bg-gradient-to-r from-transparent via-[#915EFF] to-transparent rounded-full mb-4" />
+            <p className="text-secondary/90 text-[17px] max-w-xl mx-auto">
+              Follow and connect with me on social media
+            </p>
       </motion.div>
     </div>
     

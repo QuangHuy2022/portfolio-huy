@@ -36,13 +36,13 @@ const Hero = () => {
             <div className="relative z-10 w-full">
               <h1 className={`${styles.heroHeadText} relative z-10`}>
                 <span className="block text-[#915EFF] mb-2 text-[20px] sm:text-[28px] font-medium tracking-wider">
-                  ✨ Chào mừng đến với
-                </span>
-                <span className="block text-[32px] sm:text-[50px] lg:text-[60px] font-black leading-tight
-                  bg-gradient-to-r from-[#915EFF] via-[#7c3aed] to-[#00BFFF] 
-                  bg-clip-text text-transparent break-words">
-                  Không Gian Sáng Tạo Của Tôi
-                </span>
+              ✨ Welcome to
+            </span>
+            <span className="block text-[32px] sm:text-[50px] lg:text-[60px] font-black leading-tight
+              bg-gradient-to-r from-[#915EFF] via-[#7c3aed] to-[#00BFFF] 
+              bg-clip-text text-transparent break-words">
+              My Creative Space
+            </span>
               </h1>
               <div className="mt-2 h-1 w-32 bg-gradient-to-r from-transparent via-[#915EFF] to-transparent rounded-full" />
             </div>
@@ -56,9 +56,9 @@ const Hero = () => {
             className="mt-6 space-y-3 w-full relative z-10"
           >
             <p className={`${styles.heroSubText} text-white/90 leading-relaxed break-words`}>
-              Nơi <span className="text-[#915EFF] font-semibold">kỹ thuật</span> và <span className="text-[#915EFF] font-semibold">thiết kế</span> hòa quyện,
-              <br className='sm:block hidden' />
-              tạo nên những <span className="text-[#61DAFB] font-semibold">trải nghiệm số hiện đại.</span>
+              Where <span className="text-[#915EFF] font-semibold">engineering</span> and <span className="text-[#915EFF] font-semibold">design</span> blend,
+              <br className='sm:block hidden'/>
+              creating <span className="text-[#61DAFB] font-semibold">modern digital experiences</span>.
             </p>
             
             {/* Call to action */}
@@ -71,7 +71,7 @@ const Hero = () => {
                   border border-[#915EFF]/40 text-[#CBB6FF] text-xs sm:text-sm font-medium flex-shrink-0"
               >
                 <span className="w-2 h-2 rounded-full bg-[#915EFF] animate-pulse"></span>
-                <span className="whitespace-nowrap">Sẵn sàng cho dự án mới</span>
+                <span className="whitespace-nowrap">Ready for New Projects</span>
               </motion.div>
               
               <motion.div
@@ -82,7 +82,7 @@ const Hero = () => {
                   border border-[#00BFFF]/40 text-[#CBB6FF] text-xs sm:text-sm font-medium flex-shrink-0"
               >
                 <span className="w-2 h-2 rounded-full bg-[#00BFFF] animate-pulse"></span>
-                <span className="whitespace-nowrap">Luôn học hỏi & phát triển</span>
+                <span className="whitespace-nowrap">Always Learning & Growing</span>
               </motion.div>
             </div>
           </motion.div>

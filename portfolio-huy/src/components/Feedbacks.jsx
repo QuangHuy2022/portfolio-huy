@@ -66,7 +66,7 @@ const Inspirations = () => {
               className="inline-block"
             >
               <span className={`${styles.sectionSubText} text-[#915EFF] font-medium tracking-wider`}>
-                💬 Những câu nói truyền cảm hứng
+                💬 Inspirational Quotes
               </span>
             </motion.div>
             
